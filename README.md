@@ -1,169 +1,63 @@
+Ohm's Law and Power Calculator
 
+What it does
 
-# ==========================================
-# OHM'S LAW AND POWER CALCULATOR
-# ==========================================
+The Ohm's Law and Power Calculator is a Python program that performs basic electrical calculations using Ohm's Law and the electrical power formula.
 
-# Store previous calculations
-history = []
+The program allows users to calculate voltage, current, resistance and electrical power. It also displays answers with their correct units and provides a calculation history.
 
+How to run it
 
-# Function to get valid positive numbers
-def get_number(message):
+1. Install Python 3 on your computer or use Pydroid 3 on Android.
+2. Download or clone this repository.
+3. Open the project folder.
+4. Run the following command:
 
-    while True:
+python ohms_law.py
 
-        try:
-            number = float(input(message))
+Sample output
 
-            if number <= 0:
-                print("Error: Enter a number greater than zero.")
+========================================
+      OHM'S LAW AND POWER CALCULATOR
+========================================
 
-            else:
-                return number
+1. Calculate Voltage
+2. Calculate Current
+3. Calculate Resistance
+4. Calculate Electrical Power
+5. View Calculation History
+6. Clear Calculation History
+7. Exit
 
-        except ValueError:
-            print("Invalid input! Please enter a valid number.")
+Enter your choice (1-7): 1
 
+Enter current (A): 2
+Enter resistance (Ohms): 10
 
-# Function to display calculation history
-def show_history():
+Calculated Answer:
+Voltage = 20.00 Volts (V)
 
-    print("\n========== CALCULATION HISTORY ==========")
+My own twist
 
-    if len(history) == 0:
-        print("No calculations available.")
+I added extra features to make the calculator more useful and user-friendly:
 
-    else:
-        for number, item in enumerate(history, start=1):
-            print(f"{number}. {item}")
+- Calculation History: Stores previous calculations so users can review their results.
+- Input Validation: Checks user inputs and displays an error message when invalid data is entered.
+- History Management: Allows users to view and clear their calculation history.
+- Clear Confirmation: Asks users for confirmation before deleting calculation history.
+- Units Display: Displays calculated answers with appropriate electrical units.
 
+Note: Calculation history is stored temporarily while the program is running.
 
-# Function to clear calculation history
-def clear_history():
+What I learned
 
-    if len(history) == 0:
-        print("There is no history to clear.")
+Through this project, I learned how to use Python functions, loops, conditional statements and lists to build a practical engineering application.
 
-    else:
-        confirm = input("Are you sure you want to clear history? (yes/no): ")
+I also learned how to handle invalid user input using try and except, perform electrical calculations using Ohm's Law, and organise a Python program into manageable sections.
 
-        if confirm.lower() == "yes":
-            history.clear()
-            print("Calculation history cleared.")
+Author
 
-        else:
-            print("History was not cleared.")
+[Your Full Name]
 
-
-# Keep the calculator running
-while True:
-
-    print("\n========================================")
-    print("      OHM'S LAW AND POWER CALCULATOR")
-    print("========================================")
-
-    print("1. Calculate Voltage")
-    print("2. Calculate Current")
-    print("3. Calculate Resistance")
-    print("4. Calculate Electrical Power")
-    print("5. View Calculation History")
-    print("6. Clear Calculation History")
-    print("7. Exit")
-
-    choice = input("\nEnter your choice (1-7): ")
-
-    # Calculate voltage
-    if choice == "1":
-
-        current = get_number("Enter current (A): ")
-        resistance = get_number("Enter resistance (Ohms): ")
-
-        voltage = current * resistance
-
-        result = (
-            f"Voltage: {current} A x {resistance} Ohms "
-            f"= {voltage:.2f} V"
-        )
-
-        print("\nCalculated Answer:")
-        print(f"Voltage = {voltage:.2f} Volts (V)")
-
-        history.append(result)
-
-    # Calculate current
-    elif choice == "2":
-
-        voltage = get_number("Enter voltage (V): ")
-        resistance = get_number("Enter resistance (Ohms): ")
-
-        current = voltage / resistance
-
-        result = (
-            f"Current: {voltage} V / {resistance} Ohms "
-            f"= {current:.2f} A"
-        )
-
-        print("\nCalculated Answer:")
-        print(f"Current = {current:.2f} Amperes (A)")
-
-        history.append(result)
-
-    # Calculate resistance
-    elif choice == "3":
-
-        voltage = get_number("Enter voltage (V): ")
-        current = get_number("Enter current (A): ")
-
-        resistance = voltage / current
-
-        result = (
-            f"Resistance: {voltage} V / {current} A "
-            f"= {resistance:.2f} Ohms"
-        )
-
-        print("\nCalculated Answer:")
-        print(f"Resistance = {resistance:.2f} Ohms (Ω)")
-
-        history.append(result)
-
-    # Calculate power
-    elif choice == "4":
-
-        voltage = get_number("Enter voltage (V): ")
-        current = get_number("Enter current (A): ")
-
-        power = voltage * current
-
-        result = (
-            f"Power: {voltage} V x {current} A "
-            f"= {power:.2f} W"
-        )
-
-        print("\nCalculated Answer:")
-        print(f"Power = {power:.2f} Watts (W)")
-
-        history.append(result)
-
-    # View history
-    elif choice == "5":
-
-        show_history()
-
-    # Clear history
-    elif choice == "6":
-
-        clear_history()
-
-    # Exit
-    elif choice == "7":
-
-        print("\nThank you for using")
-        print("OHM'S LAW AND POWER CALCULATOR!")
-        print("Goodbye!")
-        break
-
-    # Invalid menu choice
-    else:
-
-        print("Invalid choice! Please select a number from 1 to 7.")
+ND1 Electrical/Electronics Engineering
+Yaba College of Technology (YabaTech)
